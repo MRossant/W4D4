@@ -38,5 +38,13 @@ describe "#two_sum" do
 end
 
 describe "#my_transpose" do
-    
+    let(:array) { [[0,1,2], [3,4,5], [6,7,8]] }
+    let(:array1) { [[0,1,2], [3,4,5,10], [6,7,8]] }
+    it "converts rows into colums" do 
+        expect(array.my_transpose).to eq([[0,3,6],[1,4,7], [2,5,8]])
+    end
+
+    it "should raise an error if the rows have different lengths" do
+        expect { array1.my_transpose }.to raise_error("unequal lengths error")
+    end
 end
