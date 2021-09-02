@@ -48,3 +48,21 @@ describe "#my_transpose" do
         expect { array1.my_transpose }.to raise_error("unequal lengths error")
     end
 end
+
+describe "#stock_picker" do
+    let (:array) { [9, 13, 6, 1000, 25, 3] }
+
+    it "returns pair of indices of highest profit" do
+        expect(array.stock_picker).to eq([2,3])
+    end
+
+    it "index of highest value cannot be less than index of lowest value" do
+        expect(array.stock_picker).not_to eq([3,5])
+    end
+
+    it "should raise error if array is empty or length is 1" do 
+        expect { [].stock_picker }.to raise_error("There are no days")
+        expect { [1].stock_picker }.to raise_error("There is only 1 day")
+    end
+end
+

@@ -35,4 +35,13 @@ class Array
         
         result
     end
+
+    def stock_picker
+        raise "There are no days" if self.empty?
+        raise "There is only 1 day" if self.length == 1
+
+        peak = self.index(self.max)
+        low = self.index(self.take(peak).min)
+        [low, peak]
+    end
 end
